@@ -1,8 +1,8 @@
 balls = [];
 ballSize = 5;
 numBalls = 60;
-ballLife = 60 
-freq = 5; 
+ballLife = 60 // Balls live this many iterations
+freq = 5; // Explode at most every `freq` frames
 time = 0;
 previous = 0;
 started = false;
@@ -47,7 +47,9 @@ function setUp() {
     window.height = window.innerHeight;
     window.ctx = canvas.getContext('2d');
     
-
+    // Modify canvas to be high DPI
+    // Lovingly adapted from
+    // http://stackoverflow.com/a/15666143/1313757
     var dpr = window.devicePixelRatio || 1;
     var bsr = (ctx.webkitBackingStorePixelRatio
         || ctx.mozBackingStorePixelRatio
@@ -80,9 +82,9 @@ function mousemove(event) {
 }
 
 function explode(cx, cy) {
-    const R = randInt(245, 249);
-    const G = randInt(30, 100);
-    const B = randInt(30, 100);
+    const R = randInt(0, 255);
+    const G = randInt(0, 255);
+    const B = randInt(0, 255);
     ballColor = `rgb(${R}, ${G}, ${B})`;
 
     const step = 2 * Math.PI / numBalls;
