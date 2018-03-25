@@ -275,9 +275,10 @@ a:hover {
 }
 
 @media only screen and (max-width: 1000px) {
-   ursulet {
-        display:none;
+   canvas {
+        display:none !important;
     }
+    
 }
 
 
